@@ -23,6 +23,7 @@ app.get(
 app.post(
     "/broadcast/:roomID",
     (req, res, next) => {
+        console.log("broadcast to", roomID)
         io.of(req.params.roomID).emit(
             req.body.type,
             req.body.data
