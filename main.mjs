@@ -23,8 +23,9 @@ app.get(
 app.post(
     "/broadcast/:roomID",
     (req, res, next) => {
+        const { roomID } = req.params
         console.log("broadcast to", roomID)
-        io.of(req.params.roomID).emit(
+        io.of(roomID).emit(
             req.body.type,
             req.body.data
         )
